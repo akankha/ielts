@@ -15,7 +15,7 @@
                             @for ($i = 1; $i <=40 ; $i++)
                                 <li class="list-group-item">{{$i}}.
 
-                                @if ($origina_ans[$i]===$user_ans[$i])
+                                @if (strtolower($origina_ans[$i])===strtolower($user_ans[$i]))
                                         <div style="display: inline-block;color: green;">
                                             {{ucfirst($origina_ans[$i])}} :: {{$user_ans[$i]}}
                                         </div>

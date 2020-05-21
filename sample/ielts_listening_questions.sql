@@ -1,1 +1,0 @@
-INSERT INTO ielts.listening_questions (id, urls, created_at, updated_at) VALUES (2, 'rlzI0nGoCuY', '2020-05-02 08:14:17', '2020-05-02 08:14:17');

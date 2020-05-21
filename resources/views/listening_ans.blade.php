@@ -6,10 +6,13 @@
                 <div class="card">
                     <div class="card-header">Listening Question no {{$questions->id}}</div>
                     <div class="card-body">
-                        <iframe width="850" height="400" src="https://www.youtube.com/embed/{{ $questions->urls}}"
-                                frameborder="0"
-                                allow="accelerometer; encrypted-media;"
-                        ></iframe>
+                        <div class="iframe-container">
+                            <iframe width="850" height="400" src="https://www.youtube.com/embed/{{ $questions->urls}}"
+                                    frameborder="0"
+                                    allow="accelerometer; encrypted-media;"
+                            ></iframe>
+                        </div>
+
                         <form class="form-inline" method="POST" action="/listeningans">
                             @csrf
                             <input type="hidden" value="{{ $questions->id}}" name="listening_question_id">
