@@ -71,7 +71,7 @@
             $count = 0;
 
             for ($x = 1; $x < $size; $x++) {
-                $m=explode ("|", $origina_ans[1]);
+                $m=explode ("/", $origina_ans[$x]);
                 if (strtolower($user_ans[$x] )== strtolower($origina_ans[$x])) {
                     $count = $count + 1;
                 }elseif (in_array(strtolower($user_ans[$x] ),$m)){
