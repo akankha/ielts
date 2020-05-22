@@ -69,10 +69,15 @@
             $qid = $user_ans->listening_questions_id;
             $origina_ans = $ac_ans->find($qid)->listening_answer;
             $count = 0;
+
             for ($x = 1; $x < $size; $x++) {
+                $m=explode ("|", $origina_ans[1]);
                 if (strtolower($user_ans[$x] )== strtolower($origina_ans[$x])) {
                     $count = $count + 1;
+                }elseif (in_array(strtolower($user_ans[$x] ),$m)){
+                    $count = $count + 1;
                 }
+
             }
             $grade = new listening_grade();
             $final_grade = $grade->find($count)->grade ?? 0;

@@ -6,31 +6,41 @@
                 <div class="card">
                     <div class="card-header">Listening Question no {{$questions->id}}</div>
                     <div class="card-body">
-                        <div class="iframe-container">
-                            <iframe width="850" height="400" src="https://www.youtube.com/embed/{{ $questions->urls}}"
-                                    frameborder="0"
-                                    allow="accelerometer; encrypted-media;"
-                            ></iframe>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="iframe-container">
+                                    <iframe width="850" height="400" src="https://www.youtube.com/embed/{{ $questions->urls}}"
+                                            frameborder="0"
+                                            allow="accelerometer; encrypted-media;"
+                                    ></iframe>
+                                </div>
+                            </div>
                         </div>
 
-                        <form class="form-inline" method="POST" action="/listeningans">
-                            @csrf
-                            <input type="hidden" value="{{ $questions->id}}" name="listening_question_id">
-                            <label for="urls">Write your Answer</label>
-                            <div class="row">
-                                @foreach(range(0,39) as $x)
-                                    <div class="col-3">
-                                        <label for="{{$x}}"> {{$x+1}}.
-                                            <input class="m-1 " type="text" name="ans[]" value="{{old('ans.'.$x)}}">
-                                        </label>
-                                    </div>
-                                @endforeach
+                        <div class="row">
+                            <div class="col-12">
+                                <form class="form-inline" method="POST" action="/listeningans">
+                                    @csrf
+                                    <input type="hidden" value="{{ $questions->id}}" name="listening_question_id">
+                                    <label for="urls">Write your Answer</label>
+                                    <div class="row">
+                                        @foreach(range(0,39) as $x)
+                                            <div class="col-3">
+                                                <label for="{{$x}}"> {{$x+1}}.
+                                                    <input class="m-1 " type="text" name="ans[]" value="{{old('ans.'.$x)}}">
+                                                </label>
+                                            </div>
+                                        @endforeach
 
+                                    </div>
+                                    <div class="col-12 float-right mt-3">
+                                        <input class="btn-primary" type="submit" name="submit">
+                                    </div>
+                                </form>
                             </div>
-                            <div class="col-12 float-right mt-3">
-                                <input class="btn-primary" type="submit" name="submit">
-                            </div>
-                        </form>
+                        </div>
+
+
                         @if(Session::has('success'))
                             <div class="alert alert-success">
                                 {{Session::get('success')}}
